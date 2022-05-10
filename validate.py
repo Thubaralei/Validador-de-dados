@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 IMPORTAGEM DE DADOS PARA FUNCIONAMENTO DE VALIDADOR
 
 import argparse
 import csv
@@ -10,7 +10,7 @@ import sys
 import yaml
 
 #= Function ===========
-# Load spreadsheet data
+# Load spreadsheet data/ SUBINDO CADA TAMELA XLS PARA O SISTEMA
 #======================
 def read_spreadsheet(datafile):
     print('Loading spreadsheet data from file "{0}" ... '.format(
@@ -31,7 +31,7 @@ def read_spreadsheet(datafile):
     return cols, data
 
 #= Function ======
-# Read schema file
+# Read schema file LENDO A TEBELA PELO FUNCIONAMENTO SCHEMA
 #=================
 def read_schema(schemafile):
     print('Loading schema from file "{0}" ... '.format(schemafile), end='')
@@ -41,14 +41,14 @@ def read_schema(schemafile):
     return schema
 
 #= Function ===============
-# Pull data from Excel File
+# Pull data from Excel File TRATAMENTO DE DADOS DO XLS
 #==========================
 def convert_excel(excelfile):
     bashCommand = "in2csv {0}".format(excelfile)
     return subprocess.check_output(bashCommand.split())
 
 #= Function ===================
-# Check for ASCII control chars
+# Check for ASCII control chars/ Verifique se há caracteres de controle ASCII
 #==============================
 def charcheck(rawlines):
     with open('control.p', 'rb') as f:
@@ -62,7 +62,7 @@ def charcheck(rawlines):
                     c[3], charlocation, n))
 
 #= Function ==================
-# Validate data against schema
+# Validate data against schema/ VALIDAR DADOS EM RELAÇÃO A REGRAS ESPECIFICAS
 #=============================
 def validate(colnames, data, schema):
     violations = {}
